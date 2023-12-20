@@ -130,9 +130,9 @@ def show_go_screen(): #muestra el MENU DE INICIO
     pygame.display.flip() #actualizamos la pantalla
     waiting = True
     while waiting:
-        clock.tick(60) # 60 FPS
         for event in pygame.event.get():
             if event.type == pygame.QUIT: #si se presiona la X de la ventana se cierra el juego
+                waiting = False
                 pygame.quit()
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_RETURN:
