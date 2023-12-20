@@ -126,7 +126,7 @@ def show_go_screen(): #muestra el MENU DE INICIO
     #quiero mostrar el score que logro el jugador
     draw_text(screen, "Score: " + str(score), 22, width / 2, height / 2.5) #dibujamos el puntaje
     draw_text(screen, "Arrow keys to move, Space to fire", 22, width / 2, height / 2) #dibujamos las instrucciones
-    draw_text(screen, "Press a key to play", 18, width / 2, height * 3 / 4) #dibujamos las instrucciones
+    draw_text(screen, "Press enter to play", 18, width / 2, height * 3 / 4) #dibujamos las instrucciones
     pygame.display.flip() #actualizamos la pantalla
     waiting = True
     while waiting:
@@ -135,7 +135,9 @@ def show_go_screen(): #muestra el MENU DE INICIO
             if event.type == pygame.QUIT: #si se presiona la X de la ventana se cierra el juego
                 pygame.quit()
             if event.type == pygame.KEYUP:
-                waiting = False
+                if event.key == pygame.K_RETURN:
+                    waiting = False
+                
 
 enemy_images = [] #lista de imagenes de enemigos
 enemy_list = ["assets/meteorGrey_big1.png", "assets/meteorGrey_big2.png", "assets/meteorGrey_big3.png", "assets/meteorGrey_big4.png",
